@@ -1,0 +1,449 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   FONDO ANIMADO DE ONDAS
+========================================= */
+
+.background-wave {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #4973ff;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.background-wave .wave {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: #4973ff;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.25);
+}
+
+.background-wave .wave span {
+    position: absolute;
+    width: 200vw;
+    height: 200vw;
+    min-width: 1000px;
+    min-height: 1000px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    background: #141414;
+    border-radius: 45%;
+}
+
+.background-wave .wave span:nth-child(1) {
+    background: rgba(20, 20, 20, 0.9);
+    animation: wave-animate 5s linear infinite;
+}
+
+.background-wave .wave span:nth-child(2) {
+    background: rgba(20, 20, 20, 0.35);
+    animation: wave-animate 10s linear infinite;
+}
+
+.background-wave .wave span:nth-child(3) {
+    background: rgba(20, 20, 20, 0.2);
+    animation: wave-animate 15s linear infinite;
+}
+
+@keyframes wave-animate {
+    0% {
+        transform: translate(-50%, -75%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -75%) rotate(360deg);
+    }
+}
+
+/* =========================================
+   BARRA DE NAVEGACIÓN
+========================================= */
+
+nav {
+
+    width: 100%;
+    min-height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 35px;
+
+    /* TRANSPARENTE */
+
+    background: rgba(0, 0, 0, 0.15);
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+nav h2 {
+
+    color: white;
+
+    margin: 0;
+
+    font-size: 24px;
+}
+
+
+.menu {
+
+    display: flex;
+
+    gap: 25px;
+}
+
+
+.menu a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.menu a:hover {
+
+    color: #006D5B;
+
+}
+
+
+
+/* =========================================
+   BANNER PRINCIPAL
+========================================= */
+
+.banner {
+    width: 90%;
+    max-width: 1200px;
+    height: 220px;
+    margin: 0 auto 35px;
+
+    overflow: hidden;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
+
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+/* IMAGEN DEL BANNER */
+
+.banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.5s ease,
+                filter 0.5s ease;
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.banner:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.30);
+}
+
+.banner:hover img {
+    transform: scale(1.06);
+
+    filter: brightness(1.08);
+}
+
+
+/* =========================================
+   RADIO BUTTONS OCULTOS
+========================================= */
+
+input[type="radio"] {
+    display: none;
+}
+
+
+/* =========================================
+   GALERÍA
+========================================= */
+
+.galeria {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    gap: 50px;
+
+    align-items: flex-start;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.botones {
+
+    width: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.botones label {
+
+    width: 190px;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    background: #087ff5;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+.botones label:hover {
+
+    background: #005fc4;
+
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   VISOR DE IMÁGENES
+========================================= */
+
+.visor {
+
+    position: relative;
+
+    width: 650px;
+
+    height: 410px;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: rgba(255,255,255,0.90);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.25);
+}
+
+
+/* =========================================
+   IMÁGENES
+========================================= */
+
+.imagen {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transform: scale(0.95);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   MOSTRAR CADA IMAGEN
+========================================= */
+
+#img1:checked ~ .galeria .imagen1 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+#img2:checked ~ .galeria .imagen2 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+#img3:checked ~ .galeria .imagen3 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+#img4:checked ~ .galeria .imagen4 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+#img5:checked ~ .galeria .imagen5 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+#img6:checked ~ .galeria .imagen6 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+#img7:checked ~ .galeria .imagen7 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =========================================
+   BOTÓN ACTIVO
+========================================= */
+
+#img1:checked ~ .galeria .botones label:nth-child(1),
+#img2:checked ~ .galeria .botones label:nth-child(2),
+#img3:checked ~ .galeria .botones label:nth-child(3),
+#img4:checked ~ .galeria .botones label:nth-child(4),
+#img5:checked ~ .galeria .botones label:nth-child(5),
+#img6:checked ~ .galeria .botones label:nth-child(6),
+#img7:checked ~ .galeria .botones label:nth-child(7) {
+
+    background: #005fc4;
+
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 800px) {
+
+    nav {
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .menu {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+
+    h1 {
+
+        font-size: 25px;
+
+        margin: 30px 15px;
+    }
+
+
+    .galeria {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 25px;
+    }
+
+
+    .botones {
+
+        width: 100%;
+
+        align-items: center;
+    }
+
+
+    .visor {
+
+        width: 90vw;
+
+        height: 55vw;
+
+        max-height: 410px;
+    }
+
+}

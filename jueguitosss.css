@@ -1,0 +1,790 @@
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #ffffff;
+
+    background: #000;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   FONDO ANIMADO
+===================================================== */
+
+.fondo {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    z-index: -1;
+
+    background: #050505;
+}
+
+
+/* =====================================================
+   DIAGONAL PRINCIPAL
+===================================================== */
+
+.bg {
+    animation:
+        slide 3s ease-in-out infinite alternate;
+
+    background-image:
+        linear-gradient(
+            -60deg,
+            #6c3 50%,
+            #09f 50%
+        );
+
+    bottom: 0;
+
+    left: -50%;
+
+    opacity: 0.35;
+
+    position: absolute;
+
+    right: -50%;
+
+    top: 0;
+
+    z-index: 0;
+}
+
+
+/* =====================================================
+   DIAGONAL 2
+===================================================== */
+
+.bg2 {
+
+    animation-direction:
+        alternate-reverse;
+
+    animation-duration:
+        4s;
+
+    opacity: 0.25;
+}
+
+
+/* =====================================================
+   DIAGONAL 3
+===================================================== */
+
+.bg3 {
+
+    animation-duration:
+        5s;
+
+    opacity: 0.20;
+}
+
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+@keyframes slide {
+
+    0% {
+        transform:
+            translateX(-25%);
+    }
+
+    100% {
+        transform:
+            translateX(25%);
+    }
+
+}
+
+
+/* =====================================================
+   BARRA DE NAVEGACIÓN
+===================================================== */
+
+header {
+
+    width: calc(100% - 30px);
+
+    margin: 15px;
+
+    min-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 12px 35px;
+
+    /*
+       TRANSPARENTE
+    */
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    /*
+       EFECTO VIDRIO
+    */
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.20);
+
+    border-radius:
+        14px;
+
+    position:
+        relative;
+
+    z-index:
+        10;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.30);
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    font-size:
+        25px;
+
+    font-weight:
+        bold;
+
+    color:
+        #ffffff;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.8);
+}
+
+
+/* =====================================================
+   NAVEGACIÓN
+===================================================== */
+
+nav {
+
+    display:
+        flex;
+
+    gap:
+        35px;
+}
+
+
+nav a {
+
+    color:
+        #ffffff;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        bold;
+
+    text-shadow:
+        0 2px 6px
+        rgba(0, 0, 0, 0.9);
+
+    transition:
+        0.3s;
+}
+
+
+nav a:hover {
+
+    color:
+        #66ccff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =====================================================
+   CONTENIDO PRINCIPAL
+===================================================== */
+
+main {
+
+    width:
+        90%;
+
+    max-width:
+        1200px;
+
+    margin:
+        60px auto;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+/* =====================================================
+   BANNER PRINCIPAL TRANSPARENTE
+===================================================== */
+
+.introduccion.banner {
+    width: 70%;
+    height: 240px;
+
+    margin: 0 auto 60px;
+    padding: 0;
+
+    overflow: hidden;
+    position: relative;
+
+    /* MANTIENE EL EFECTO TRANSPARENTE */
+    background: rgba(0, 0, 0, 0.40);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.30);
+
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+/* IMAGEN DEL BANNER */
+
+.introduccion.banner img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.5s ease,
+                filter 0.5s ease;
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.introduccion.banner:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.40);
+}
+
+.introduccion.banner:hover img {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+}
+
+/* =====================================================
+   TARJETAS DE CONTENIDO
+===================================================== */
+
+.contenido {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        50px;
+
+    padding:
+        35px;
+
+    margin-bottom:
+        45px;
+
+    /*
+       TRANSPARENCIA
+    */
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    /*
+       EFECTO DE VIDRIO
+    */
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    /*
+       BORDE
+    */
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    border-radius:
+        18px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.35);
+
+    position:
+        relative;
+
+    z-index:
+        3;
+}
+
+
+.contenido-inverso {
+
+    flex-direction:
+        row;
+}
+
+
+/* =====================================================
+   IMÁGENES
+===================================================== */
+
+.imagen {
+
+    width:
+        50%;
+}
+
+
+.imagen img {
+
+    width:
+        100%;
+
+    max-height:
+        430px;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        12px;
+
+    border:
+        3px solid
+        rgba(255, 255, 255, 0.50);
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    padding:
+        8px;
+
+    transition:
+        0.3s;
+}
+
+
+.imagen img:hover {
+
+    transform:
+        scale(1.03);
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 255, 255, 0.25);
+}
+
+
+/* =====================================================
+   TEXTOS
+===================================================== */
+
+.texto {
+
+    width:
+        50%;
+
+    color:
+        #ffffff;
+}
+
+
+.texto h2 {
+
+    color:
+        #ffffff;
+
+    font-size:
+        27px;
+
+    margin-bottom:
+        18px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.9);
+}
+
+
+.texto p {
+
+    margin-bottom:
+        15px;
+
+    color:
+        #ffffff;
+
+    text-shadow:
+        0 2px 6px
+        rgba(0, 0, 0, 0.9);
+}
+
+
+.texto ul {
+
+    padding-left:
+        25px;
+}
+
+
+.texto li {
+
+    margin-bottom:
+        12px;
+
+    color:
+        #ffffff;
+
+    text-shadow:
+        0 2px 6px
+        rgba(0, 0, 0, 0.9);
+}
+
+
+/* =====================================================
+   SOLUCIÓN
+===================================================== */
+
+.solucion {
+
+    padding:
+        40px;
+
+    margin-bottom:
+        40px;
+
+    background:
+        rgba(0, 100, 255, 0.18);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    border-left:
+        6px solid
+        #4aa3ff;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.20);
+
+    border-right:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.35);
+
+    position:
+        relative;
+
+    z-index:
+        3;
+}
+
+
+.solucion h2 {
+
+    color:
+        #ffffff;
+
+    margin-bottom:
+        20px;
+
+    font-size:
+        28px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.9);
+}
+
+
+.solucion p {
+
+    color:
+        #ffffff;
+
+    margin-bottom:
+        15px;
+
+    text-shadow:
+        0 2px 6px
+        rgba(0, 0, 0, 0.9);
+}
+
+
+/* =====================================================
+   CONCLUSIÓN
+===================================================== */
+
+.conclusion {
+
+    padding:
+        40px;
+
+    margin-bottom:
+        50px;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    border-radius:
+        18px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.35);
+
+    position:
+        relative;
+
+    z-index:
+        3;
+}
+
+
+.conclusion h2 {
+
+    text-align:
+        center;
+
+    color:
+        #ffffff;
+
+    font-size:
+        30px;
+
+    margin-bottom:
+        25px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.9);
+}
+
+
+.conclusion p {
+
+    margin-bottom:
+        15px;
+
+    color:
+        #ffffff;
+
+    text-shadow:
+        0 2px 6px
+        rgba(0, 0, 0, 0.9);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background:
+        rgba(0, 0, 0, 0.40);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    color:
+        #ffffff;
+
+    text-align:
+        center;
+
+    padding:
+        20px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.20);
+
+    position:
+        relative;
+
+    z-index:
+        10;
+
+    text-shadow:
+        0 2px 6px
+        rgba(0, 0, 0, 0.9);
+}
+
+
+/* =====================================================
+   ADAPTACIÓN PARA CELULAR
+===================================================== */
+
+@media (max-width: 800px) {
+
+    header {
+
+        flex-direction:
+            column;
+
+        gap:
+            15px;
+
+        padding:
+            18px;
+    }
+
+
+    nav {
+
+        gap:
+            18px;
+
+        flex-wrap:
+            wrap;
+
+        justify-content:
+            center;
+    }
+
+
+    main {
+
+        width:
+            94%;
+
+        margin-top:
+            35px;
+    }
+
+
+    .introduccion h1 {
+
+        font-size:
+            28px;
+    }
+
+
+    .contenido,
+    .contenido-inverso {
+
+        flex-direction:
+            column;
+
+        padding:
+            20px;
+    }
+
+
+    .imagen,
+    .texto {
+
+        width:
+            100%;
+    }
+
+
+    .texto h2 {
+
+        font-size:
+            23px;
+    }
+
+}
